@@ -1,0 +1,62 @@
+import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
+import ScrollingText from "./ScrollingText";
+import Card from "./Hoverimg";
+
+
+export default function Projects() {
+    const [repos, setRepos] = useState([]);
+
+    useEffect(() => {
+        // TODO: เปลี่ยนชื่อ user ด้านล่างเป็น GitHub username ของคุณ
+        fetch("https://api.github.com/users/cabbage1L/repos")
+            .then((res) => res.json())
+            .then((data) => {
+                // เอาเฉพาะ repo ที่เป็น public และไม่ใช่ fork
+                const filtered = data.filter((repo) => !repo.fork);
+                setRepos(filtered);
+            });
+    }, []);
+
+    return (
+        <section id="Project" className="min-h-screen scroll-mt-[2rem] bg-black text-white px-8 py-12 mt-10">
+            <ScrollingText title={" Coding is my life, and yes it's money 💖 , Coding is my life, and yes it's money 😗 , Coding is my life, and yes it's money 😎 , Coding is my life, and yes it's money"} duration={15} />
+            {/* ส่วนหัว */}
+            <div className="mb-40 pt-25 px-70">
+                <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-12 ">
+                    <div>
+                        <h1 className="text-5xl font-bold mb-4">project.</h1>
+                        <p className="text-gray-400 max-w-md">
+                            Here you will find some of the personal projects that I created with each project containing its own case study
+                        </p>
+                    </div>
+
+                    {/* พื้นที่ว่างสำหรับรูป */}
+                    <Card />
+                </div>
+            </div>
+
+
+            {/* ส่วนแสดง Projects */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                {repos.slice(0, 9).map((repo) => (
+                    <div
+                        key={repo.id}
+                        className="bg-gray-800 rounded-2xl p-6 hover:bg-gray-700 transition"
+                    >
+                        <h2 className="text-xl font-semibold mb-2">{repo.name}</h2>
+                        <p className="text-gray-400 text-sm line-clamp-3">{repo.description}</p>
+                        <a
+                            href={repo.html_url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-blue-400 text-sm mt-4 inline-block"
+                        >
+                            View on GitHub →
+                        </a>
+                    </div>
+                ))}
+            </div>
+        </section>
+    );
+}

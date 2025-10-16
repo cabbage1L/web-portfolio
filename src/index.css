@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;700&display=swap');
+
+@import "tailwindcss";
+@theme {
+  --font-pixelify: "Pixelify Sans", sans-serif;
+}
+
+@layer base {
+  ::selection {
+    @apply bg-pink-500 text-white;
+  }
+}
+
+html, body, #root {
+height: 100%;
+}
+
+
+/* Custom utilities for subtle glass & backdrop */
+.bg-glass {
+background: linear-gradient(135deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+backdrop-filter: blur(6px);
+}
