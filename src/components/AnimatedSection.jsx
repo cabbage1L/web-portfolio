@@ -4,9 +4,9 @@ import ScrollingTextTwo from "./ScrollingTextTwo";
 
 export default function AnimatedSection() {
     const animations = [
-        { src: "/cokewithbikeW.webp", duration: 2000 }, // 2 วิ
-        { src: "/bikeTomoto.webp", duration: 600 }, // 5 วิ
-        { src: "/cokewithmoto.webp", duration: 3000 }, // 3 วิ
+        { src: "./cokewithbikeW.webp", duration: 2000 }, // 2 วิ
+        { src: "./bikeTomoto.webp", duration: 600 }, // 5 วิ
+        { src: "./cokewithmoto.webp", duration: 3000 }, // 3 วิ
     ];
 
     const [currentAnim, setCurrentAnim] = useState(0);
@@ -21,9 +21,9 @@ export default function AnimatedSection() {
 
 
     return (
-        <div className="w-full h-40 bg-black text-white flex flex-col justify-center relative select-none">
-            <div className="absolute inset-x-0 top-0">
-                <ScrollingTextTwo title={" A coder chasing riches --- A coder chasing riches --- A coder chasing riches ---"} duration={105} size={12}/>
+        <div className="w-full h-20 sm:h-40 bg-black text-white flex flex-col justify-center relative select-none">
+            <div className="absolute inset-x-0 -top-2 sm:top-0">
+                <ScrollingTextTwo title={" A coder chasing riches --- A coder chasing riches --- A coder chasing riches ---"} duration={105} size={{ mobile: 10, tablet: 14, desktop: 18 }}/>
             </div>
             <div className="px-5">
                 <div className="w-full max-w-6xl flex">
@@ -34,7 +34,7 @@ export default function AnimatedSection() {
                                 key={animations[currentAnim].src}
                                 src={animations[currentAnim].src}
                                 alt="Animated Sprite"
-                                className="w-32 h-32 object-contain absolute mt-5"
+                                className="w-16 h-16 sm:w-32 sm:h-32 object-contain absolute mt-5"
                                 animate={{ opacity: 1, y: 0 }}
                                 exit={{ opacity: 0, y: 0 }}
                                 transition={{ duration: 0 }}
@@ -43,22 +43,22 @@ export default function AnimatedSection() {
                     </div>
                     {/* 📦 ช่องกลาง (2 ส่วน) */}
                     <div className="flex-[2] w-100 flex items-center justify-center">
-                        <p className="text-center text-gray-300">
-                            Content zone 2 — you can add text, image, or info here.
+                        <p className="text-center text-sm sm:text-2xl text-gray-300">
+                            W D
                         </p>
                     </div>
 
                     {/* 📦 ช่องขวา (2 ส่วน) */}
                     <div className="flex-[1] w-80 flex items-center justify-center">
                         <dir>
-                            <img src="/cokewithwork.webp" alt="Pixel" className="w-32 h-32 mt-7" />
+                            <img src="./cokewithwork.webp" alt="Pixel" className="w-16 h-16 sm:w-32 sm:h-32 mt-7" />
                         </dir>
                     </div>
 
                 </div>
             </div>
-             <div className="absolute inset-x-0 bottom-0">
-                <ScrollingTextTwo title={" A coder chasing riches --- A coder chasing riches --- A coder chasing riches ---"} duration={105} size={24} />
+             <div className="absolute inset-x-0 -bottom-2 sm:bottom-0">
+                <ScrollingTextTwo title={" A coder chasing riches --- A coder chasing riches --- A coder chasing riches ---"} duration={105} size={{ mobile: 12, tablet: 14, desktop: 18 }} />
             </div>
         </div>
     );

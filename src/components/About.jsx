@@ -7,7 +7,7 @@ export default function AboutSection() {
         <section id="About" className="min-h-screen scroll-mt-[2.3rem] bg-black text-white flex flex-col justify-center items-center">
             {/* กล่องหลัก */}
             <SectionTitle title={"About"}/>
-            <div className="flex flex-col md:flex-row items-center gap-12 max-w-6xl w-full">
+            <div className="flex flex-col md:flex-row items-center sm:gap-12 max-w-6xl w-full">
 
                 {/* รูปเดียวทั้งหมด */}
                 <motion.div
@@ -17,7 +17,7 @@ export default function AboutSection() {
                     className="flex-1 flex justify-center select-none"
                 >
                     <img
-                        src="/me.png"
+                        src="./me.png"
                         alt="Profile framed photo"
                         className="w-64 md:w-[420px] rounded-lg shadow-xl object-cover"
                     />
@@ -31,15 +31,15 @@ export default function AboutSection() {
                     className="flex-1 max-w-xl"
                 >
                     <div className="">
-                        <h1 className="text-9xl font-extrabold leading-tight">Hi!!</h1>
+                        <h1 className="text-5xl sm:text-9xl font-extrabold leading-tight">Hi!!</h1>
                         <div className="w-[80%]">
-                            <p className="text-gray-300 leading-relaxed text-lg ps-2">
+                            <p className="text-gray-300 leading-relaxed text-sm sm:text-lg ps-2">
                                 My name is <span className="font-semibold text-white">Athit Disdam</span>.
                                 I love creating new ideas and developing my skills as a full-stack developer.
                             </p>
                         </div>
 
-                        <p className="text-gray-400 mt-2 text-lg ps-22">
+                        <p className="text-gray-400 mt-2 text-sm sm:text-lg ps-12 sm:ps-22">
                             I'm committed to learning and growing every day.
                             Here, you'll find my work, projects, and stories about the things I'm passionate about.
                         </p>
@@ -48,22 +48,18 @@ export default function AboutSection() {
             </div>
 
             {/* Footer */}
-            <div className="flex items-center justify-center gap-38 text-sm text-gray-400 mt-12 flex-wrap">
+            <div className="hidden sm:flex items-center justify-center gap-10 sm:gap-38 text-sm text-gray-400 mt-12 flex-wrap">
                 <div className="flex items-center gap-2">
                     <Mail size={16} />
                     <span>iscokeeed@gmail.com</span>
                 </div>
-
                 <Sparkles size={16} className="text-yellow-400" />
-
                 <div className="flex items-center gap-2">
                     <Phone size={16} />
                     <span>0833928788</span>
                 </div>
-
                 <Sparkles size={16} className="text-yellow-400" />
-
-                <span>eeeeemmmeeeeme</span>
+                <span>athti.disdam@gmail.com</span>
             </div>
         </section>
 

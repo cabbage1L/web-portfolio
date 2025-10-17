@@ -27,13 +27,13 @@ export default function HoverImage() {
   return (
     <div
       className="relative mt-8 md:mt-0 w-full md:w-1/2 flex justify-center"
-      style={{ perspective: "1000px" }}
+      style={{ perspective: "500px " }}
       onMouseMove={handleMouseMove}
       onMouseLeave={reset}
     >
       {/* ภาพหลัง */}
       <img
-        src="/cokeWithbook.png"
+        src="./cokeWithbook.png"
         alt="Background"
         className="relative w-40 transition-transform duration-200 ease-out"
         style={{
@@ -44,7 +44,7 @@ export default function HoverImage() {
 
       {/* ภาพหน้า */}
       <img
-        src="/assetbook.png"
+        src="./assetbook.png"
         alt="Foreground"
         className="absolute w-55 transition-transform duration-200 ease-out pt-11"
         style={{

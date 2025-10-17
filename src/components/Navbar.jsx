@@ -1,15 +1,15 @@
 
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect, useRef } from "react";
 import Logo from '../assets/portcoke.svg';
 import Headspin from "./Headspin";
-
 
 const menuItems = ["Home", "Project", "About", "Contact"];
 
 export default function Navbar() {
     const [active, setActive] = useState("Home");
     const isScrollingByClick = useRef(false);
+    const [expanded, setExpanded] = useState(false);
     const [isAnimating, setIsAnimating] = useState(false);
     const [flipped, setFlipped] = useState(false);
 
@@ -24,6 +24,7 @@ export default function Navbar() {
                 const bottom = top + section.offsetHeight;
                 if (scrollPos >= top && scrollPos < bottom) {
                     setActive(item);
+                    setExpanded(false);
                     break;
                 }
             }
@@ -37,6 +38,7 @@ export default function Navbar() {
 
     const scrollToSection = (item) => {
         setActive(item);
+        setExpanded(false);
         isScrollingByClick.current = true;
         const section = document.getElementById(item);
         section?.scrollIntoView({ behavior: "smooth" });
@@ -56,52 +58,98 @@ export default function Navbar() {
 
 
     return (
-        <nav className="fixed top-0 left-0 w-full flex items-center justify-between px-30 pt-6 z-50 select-none">
-            {/* Logo */}
-            <div className="flex items-center space-x-2">
-                <div className="text-white text-2xl font-bold">ATHIT</div>
-            </div>
-
-            {/* Menu */}
-            <div className="flex items-center bg-white/50 backdrop-blur-md rounded-full px-1 py-1 space-x-2">
-                {menuItems.map((item) => (
-                    <motion.button
-                        key={item}
-                        onClick={() => scrollToSection(item)}
-                        className={`relative px-6 py-2 rounded-full font-medium text-m transition-all ${active === item ? "text-black" : "text-gray-900 hover:text-black"
-                            }`}
-                        whileHover={{ scale: 1.05 }}
-                    >
-                        {active === item && (
-                            <motion.span
-                                layoutId="bubble"
-                                className="absolute inset-0 bg-yellow-300 rounded-full -z-10"
-                                transition={{ type: "spring", bounce: 0.3, duration: 0.6 }}
-                            />
-                        )}
-                        {item}
-                    </motion.button>
-                ))}
-            </div>
-
-            {/* Cart Button */}
-            <motion.button
-                whileHover={{ scale: 1.1 }} 
-                whileTap={{ scale: 0.95 }}
-                className="bg-yellow-300 rounded-full shadow-md h-15"
+        <nav className="fixed top-0 left-0 w-full flex px-4 sm:px-10 md:px-20 pt-4 sm:pt-6 z-50 select-none">
+            <motion.div
+                className={`${expanded ? "h-48 rounded-[28px] bg-white/50 backdrop-blur-md py-1" : "h-14 rounded-full bg-white/50 backdrop-blur-md py-1 items-center"
+                    } flex justify-between w-full sm:h-auto px-1 sm:px-0 sm:bg-transparent sm:backdrop-blur-none sm:rounded-none`}
+                transition={{ layout: { duration: 0.5, } }}
             >
-                <motion.button
-                    onHoverStart={handleHoverStart}
-                    animate={{ rotateY: flipped ? 360 : 0 }}
-                    transition={{ duration: 0.3, ease: "easeInOut" }}
-                    onAnimationComplete={() => setIsAnimating(false)}
-                    style={{ transformStyle: "preserve-3d", backfaceVisibility: "hidden", }}
 
-                >
-                    <img src="/head/head.svg" alt="headhead" className="w-15 h-15" />
-                </motion.button>
-            </motion.button>
+                {/* Logo */}
+                <div className={`${expanded ? "" : ""
+                    } flex items-center ps-4 sm:ps-0`}>
+                    <div className={`${expanded ? "text-white" : "text-black"
+                    } text-md sm:text-xl md:text-2xl font-bold`}>ATHIT</div>
+                </div>
 
+                {/* Menu */}
+                <div className="hidden sm:flex h-12 items-center bg-white/50 backdrop-blur-md rounded-full px-1 py-1 space-x-2">
+                    {menuItems.map((item) => (
+                        <motion.button
+                            key={item}
+                            onClick={() => scrollToSection(item)}
+                            className={`relative px-6 py-2 rounded-full font-medium text-m transition-all ${active === item ? "text-black" : "text-gray-900 hover:text-black"
+                                }`}
+                            whileHover={{ scale: 1.05 }}
+                        >
+                            {active === item && (
+                                <motion.span
+                                    layoutId="bubble"
+                                    className="absolute inset-0 bg-yellow-300 rounded-full -z-10"
+                                    transition={{ type: "spring", bounce: 0.3, duration: 0.6 }}
+                                />
+                            )}
+                            {item}
+                        </motion.button>
+                    ))}
+                </div>
+
+                <AnimatePresence>
+                    {expanded && (
+                        <motion.div
+                            initial={{ opacity: 0, y: -20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            exit={{ opacity: 0, y: -20 }}
+                            transition={{ duration: 0.3 }}
+                            className="mt-4 flex flex-col gap-2"
+                        >
+                            {menuItems.map((item) => (
+                                <button
+                                    key={item}
+                                    onClick={() => scrollToSection(item)}
+                                    className={`text-lg font-medium ${active === item ? "text-yellow-600" : "text-gray-800"
+                                        }`}
+                                >
+                                    {item}
+                                </button>
+                            ))}
+                        </motion.div>
+                    )}
+                </AnimatePresence>
+
+                {/* logo */}
+                <div className={`${expanded ? "flex" : " flex"}`}>
+                    {/* mbile Menu */}
+                    <div className="flex sm:hidden h-12">
+                        <button
+                            onClick={() => setExpanded(!expanded)}
+                            className="p-1 text-black"
+                            aria-label="Toggle Menu"
+                        >
+                            {/* Burger icon (3 lines) */}
+                            <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                        </button>
+                    </div>
+
+                    <div className={`${expanded ? "flex" : " flex"}`}>
+                        <motion.button
+                            whileHover={{ scale: 1.1 }}
+                            whileTap={{ scale: 0.95 }}
+                            className="bg-yellow-300 rounded-full shadow-md h-12 sm:h-15"
+                        >
+                            <motion.div
+                                onHoverStart={handleHoverStart}
+                                animate={{ rotateY: flipped ? 360 : 0 }}
+                                transition={{ duration: 0.3, ease: "easeInOut" }}
+                                onAnimationComplete={() => setIsAnimating(false)}
+                                style={{ transformStyle: "preserve-3d", backfaceVisibility: "hidden", }}
+                            >
+                                <img src="./head/head.svg" alt="headhead" className="w-12 h-12 sm:w-15 sm:h-15" />
+                            </motion.div>
+                        </motion.button>
+                    </div>
+                </div>
+            </motion.div>
         </nav>
     );
 }

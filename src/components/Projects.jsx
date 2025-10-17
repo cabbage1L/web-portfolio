@@ -19,20 +19,21 @@ export default function Projects() {
     }, []);
 
     return (
-        <section id="Project" className="min-h-screen scroll-mt-[2rem] bg-black text-white px-8 py-12 mt-10">
+        <section id="Project" className="min-h-screen scroll-mt-[2rem] bg-black text-white px-0 sm:px-8 py-8 sm:py-12 mt-0">
             <ScrollingText title={" Coding is my life, and yes it's money 💖 , Coding is my life, and yes it's money 😗 , Coding is my life, and yes it's money 😎 , Coding is my life, and yes it's money"} duration={15} />
             {/* ส่วนหัว */}
-            <div className="mb-40 pt-25 px-70">
-                <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-12 ">
-                    <div>
-                        <h1 className="text-5xl font-bold mb-4">project.</h1>
-                        <p className="text-gray-400 max-w-md">
-                            Here you will find some of the personal projects that I created with each project containing its own case study
-                        </p>
+            <div className="">
+                <div className="flex item-center justify-center mb-10 sm:mb-10 pt-10 sm:pt-25 sm:px-[2.5rem]">
+                    <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-12 h-100 w-[800px]">
+                        <div>
+                            <h1 className="text-4xl sm:text-5xl font-bold mb-4">Project.</h1>
+                            <p className="text-gray-400 max-w-md">
+                                Here you will find some of the personal projects that I created with each project containing its own case study
+                            </p>
+                        </div>
+                        {/* รูป */}
+                        <Card />
                     </div>
-
-                    {/* พื้นที่ว่างสำหรับรูป */}
-                    <Card />
                 </div>
             </div>
 

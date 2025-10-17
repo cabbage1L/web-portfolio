@@ -5,7 +5,7 @@ const ScrollingText = ({ title, duration}) => {
   const repeatedText = `${title} • ${title} • ${title} • ${title} • ${title}`;
   const dt = duration
   return (
-    <div className="relative overflow-hidden whitespace-nowrap bg-black py-4 ">
+    <div className="relative overflow-hidden whitespace-nowrap bg-black sm:py-4 ">
       {/* Gradient ซ้าย */}
       <div className="absolute left-0 top-0 h-full w-20 bg-gradient-to-r from-black to-transparent z-10" />
       {/* Gradient ขวา */}
@@ -22,10 +22,10 @@ const ScrollingText = ({ title, duration}) => {
         }}
       >
         {/* ซ้ำ 2 ชุดต่อเนื่อง */}
-        <span className="text-center font-pixelify text-6xl px-8">
+        <span className="text-center font-pixelify text-3xl sm:text-6xl px-8">
           {repeatedText}
         </span>
-        <span className="text-center font-pixelify text-6xl px-8">
+        <span className="text-center font-pixelify text-3xl sm:text-6xl px-8">
           {repeatedText}
         </span>
       </motion.div>
