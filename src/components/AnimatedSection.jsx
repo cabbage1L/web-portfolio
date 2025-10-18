@@ -4,9 +4,9 @@ import ScrollingTextTwo from "./ScrollingTextTwo";
 
 export default function AnimatedSection() {
     const animations = [
-        { src: "./cokewithbikeW.webp", duration: 2000 }, // 2 วิ
-        { src: "./bikeTomoto.webp", duration: 600 }, // 5 วิ
-        { src: "./cokewithmoto.webp", duration: 3000 }, // 3 วิ
+        { src: "./cokewithbikeW.webp", duration: 2000 },
+        { src: "./bikeTomoto.webp", duration: 600 }, 
+        { src: "./cokewithmoto.webp", duration: 3000 },
     ];
 
     const [currentAnim, setCurrentAnim] = useState(0);
@@ -27,7 +27,7 @@ export default function AnimatedSection() {
             </div>
             <div className="px-5">
                 <div className="w-full max-w-6xl flex">
-                    {/* 🎬 ช่องซ้าย (1 ส่วน) */}
+                    {/* ช่องซ้าย */}
                     <div className=" flex-1 flex items-center justify-center">
                         <AnimatePresence mode="wait">
                             <motion.img
@@ -41,14 +41,14 @@ export default function AnimatedSection() {
                             />
                         </AnimatePresence>
                     </div>
-                    {/* 📦 ช่องกลาง (2 ส่วน) */}
+                    {/* ช่องกลาง */}
                     <div className="flex-[2] w-100 flex items-center justify-center">
                         <p className="text-center text-sm sm:text-2xl text-gray-300">
                             W D
                         </p>
                     </div>
 
-                    {/* 📦 ช่องขวา (2 ส่วน) */}
+                    {/* ช่องขวา */}
                     <div className="flex-[1] w-80 flex items-center justify-center">
                         <dir>
                             <img src="./cokewithwork.webp" alt="Pixel" className="w-16 h-16 sm:w-32 sm:h-32 mt-7" />

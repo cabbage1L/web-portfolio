@@ -1,8 +1,8 @@
 
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect, useRef } from "react";
-import Logo from '../assets/portcoke.svg';
-import Headspin from "./Headspin";
+// import Logo from '../assets/portcoke.svg';
+// import Headspin from "./Headspin";
 
 const menuItems = ["Home", "Project", "About", "Contact"];
 
@@ -12,7 +12,6 @@ export default function Navbar() {
     const [expanded, setExpanded] = useState(false);
     const [isAnimating, setIsAnimating] = useState(false);
     const [flipped, setFlipped] = useState(false);
-
 
     const handleScroll = () => {
         if (isScrollingByClick.current) return;
@@ -43,33 +42,31 @@ export default function Navbar() {
         const section = document.getElementById(item);
         section?.scrollIntoView({ behavior: "smooth" });
 
-        // เปิด scroll listener กลับมา หลัง animation เสร็จ
         setTimeout(() => {
             isScrollingByClick.current = false;
-        }, 600); // 600ms = duration ของ Framer Motion
+        }, 600); 
     };
 
 
     const handleHoverStart = () => {
-        if (isAnimating) return; // ถ้ายังหมุนอยู่ → ไม่ทำอะไร
+        if (isAnimating) return;
         setIsAnimating(true);
         setFlipped(!flipped);
     };
 
 
     return (
-        <nav className="fixed top-0 left-0 w-full flex px-4 sm:px-10 md:px-20 pt-4 sm:pt-6 z-50 select-none">
+        <nav className="fixed top-0 left-0 w-full flex flex-col px-4 sm:px-10 md:px-20 pt-4 sm:pt-6 z-50 select-none items-center">
             <motion.div
-                className={`${expanded ? "h-48 rounded-[28px] bg-white/50 backdrop-blur-md py-1" : "h-14 rounded-full bg-white/50 backdrop-blur-md py-1 items-center"
+                className={`${expanded ? "h-58 rounded-[28px] bg-white/50 backdrop-blur-md py-1" : "h-14 rounded-full bg-white/50 backdrop-blur-md py-1 items-center"
                     } flex justify-between w-full sm:h-auto px-1 sm:px-0 sm:bg-transparent sm:backdrop-blur-none sm:rounded-none`}
-                transition={{ layout: { duration: 0.5, } }}
             >
-
-                {/* Logo */}
-                <div className={`${expanded ? "" : ""
-                    } flex items-center ps-4 sm:ps-0`}>
-                    <div className={`${expanded ? "text-white" : "text-black"
-                    } text-md sm:text-xl md:text-2xl font-bold`}>ATHIT</div>
+                {/* name */}
+                <div className={`${expanded ? "py-3" : "" } `}>
+                    <div className="flex ps-4 sm:ps-0 top-10">
+                        <div className={`${expanded ? "text-black" : "text-black"
+                            } text-md sm:text-xl md:text-2xl font-bold`}>ATHIT</div>
+                    </div>
                 </div>
 
                 {/* Menu */}
@@ -93,44 +90,21 @@ export default function Navbar() {
                         </motion.button>
                     ))}
                 </div>
-
-                <AnimatePresence>
-                    {expanded && (
-                        <motion.div
-                            initial={{ opacity: 0, y: -20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            exit={{ opacity: 0, y: -20 }}
-                            transition={{ duration: 0.3 }}
-                            className="mt-4 flex flex-col gap-2"
-                        >
-                            {menuItems.map((item) => (
-                                <button
-                                    key={item}
-                                    onClick={() => scrollToSection(item)}
-                                    className={`text-lg font-medium ${active === item ? "text-yellow-600" : "text-gray-800"
-                                        }`}
-                                >
-                                    {item}
-                                </button>
-                            ))}
-                        </motion.div>
-                    )}
-                </AnimatePresence>
-
-                {/* logo */}
+                {/* Menu+logo */}
                 <div className={`${expanded ? "flex" : " flex"}`}>
-                    {/* mbile Menu */}
+                    
+                    {/* mobile Menu */}
                     <div className="flex sm:hidden h-12">
                         <button
                             onClick={() => setExpanded(!expanded)}
                             className="p-1 text-black"
                             aria-label="Toggle Menu"
                         >
-                            {/* Burger icon (3 lines) */}
+                            {/* Burger icon */}
                             <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
                         </button>
                     </div>
-
+                     {/* head */}
                     <div className={`${expanded ? "flex" : " flex"}`}>
                         <motion.button
                             whileHover={{ scale: 1.1 }}
@@ -139,6 +113,7 @@ export default function Navbar() {
                         >
                             <motion.div
                                 onHoverStart={handleHoverStart}
+                                onClick={handleHoverStart}
                                 animate={{ rotateY: flipped ? 360 : 0 }}
                                 transition={{ duration: 0.3, ease: "easeInOut" }}
                                 onAnimationComplete={() => setIsAnimating(false)}
@@ -150,6 +125,29 @@ export default function Navbar() {
                     </div>
                 </div>
             </motion.div>
+            <AnimatePresence>
+                    {expanded && (
+                        <motion.div
+                            initial={{ opacity: 0, y: -20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            exit={{ opacity: 0, y: -20 }}
+                            transition={{ duration: 0.1 }}
+                            className="absolute mt-15  flex flex-col gap-3 "
+                        >
+                            {menuItems.map((item) => (
+                                <button
+                                    key={item}
+                                    onClick={() => scrollToSection(item)}
+                                    className={`text-lg font-medium ${active === item ? "text-yellow-600" : "text-gray-800"
+                                        }`}
+                                >
+                                    
+                                    {item}
+                                </button>
+                            ))}
+                        </motion.div>
+                    )}
+                </AnimatePresence>
         </nav>
     );
 }

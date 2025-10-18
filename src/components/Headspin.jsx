@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 
 export default function Headspin() {
     const animations = [
-        { src: "", duration: 3000 }, // 2 วิ
+        { src: "", duration: 3000 }, 
     ];
 
     const [currentAnim, setCurrentAnim] = useState(0);

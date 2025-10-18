@@ -16,9 +16,9 @@ export default function Home() {
         </p>
       </div>
       <div className="flex mt-24" >
-        {/* Main Content */}
+        {/* Content */}
         <div className="flex-1 flex flex-col items-center">
-          {/* ✅ ถ้ายังไม่ได้กดปุ่ม -> แสดงหน้า Preload */}
+          {/* Preload */}
           {!isLoaded ? (
             <div className="w-[40%] sm:w-[100%] aspect-video bg-black flex flex-col items-center justify-center rounded-t-md shadow-lg text-white">
               <div className="text-xl sm:text-3xl mb-4 animate-pulse font-pixelify">cobe Adventure</div>
@@ -30,7 +30,7 @@ export default function Home() {
               </button>
             </div>
           ) : (
-            // ✅ เมื่อกดปุ่มแล้ว -> โหลด iframe
+            // iframe
             <div className="aspect-video bg-black flex items-center justify-center rounded-t-md shadow-lg overflow-hidden">
               <iframe
                 src="https://cabbage1l.github.io/cobe-adventure/coke_game1.0.12.html"
@@ -41,7 +41,6 @@ export default function Home() {
             </div>
           )}
 
-          {/* Text marquee ด้านล่าง */}
           <div className="overflow-hidden w-[40%] sm:w-[100%] bg-black py-2 rounded-b-md font-pixelify">
             <AnimatedSection />
           </div>

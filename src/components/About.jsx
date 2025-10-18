@@ -5,11 +5,10 @@ import SectionTitle from "./Title";
 export default function AboutSection() {
     return (
         <section id="About" className="min-h-screen scroll-mt-[2.3rem] bg-black text-white flex flex-col justify-center items-center">
-            {/* กล่องหลัก */}
+
             <SectionTitle title={"About"}/>
             <div className="flex flex-col md:flex-row items-center sm:gap-12 max-w-6xl w-full">
 
-                {/* รูปเดียวทั้งหมด */}
                 <motion.div
                     initial={{ opacity: 0, y: 40 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -23,7 +22,6 @@ export default function AboutSection() {
                     />
                 </motion.div>
 
-                {/* ข้อความ */}
                 <motion.div
                     initial={{ opacity: 0, x: 40 }}
                     animate={{ opacity: 1, x: 0 }}
@@ -47,7 +45,6 @@ export default function AboutSection() {
                 </motion.div>
             </div>
 
-            {/* Footer */}
             <div className="hidden sm:flex items-center justify-center gap-10 sm:gap-38 text-sm text-gray-400 mt-12 flex-wrap">
                 <div className="flex items-center gap-2">
                     <Mail size={16} />

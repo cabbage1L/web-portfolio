@@ -6,7 +6,6 @@ export default function Contact() {
     return (
         <section id="Contact" className="min-h-screen bg-black text-white flex flex-col items-center px-6 py-10 font-pixelify">
             <ScrollingText title={"Ba Bye Earthling 😎 Farewell, Human 🫡"} duration={105} />
-            {/* กล่องหลัก */}
             <div className="mt-10">
                 <motion.div
                     initial={{ opacity: 0, y: 40 }}
@@ -30,7 +29,7 @@ export default function Contact() {
                         iscokeeed@gmail.com
                     </p>
 
-                    {/* รูป Avatar */}
+                    {/* Avatar */}
                     <motion.div
                         initial={{ scale: 0 }}
                         whileInView={{ scale: 1 }}
@@ -44,7 +43,7 @@ export default function Contact() {
                         </div>
                         <h3 className="text-md sm:text-xl text-white mb-4">ATHIT</h3>
 
-                        {/* ไอคอนโซเชียล */}
+                        {/* โซเชียล */}
                         <div className="flex items-center justify-center gap-6 text-2xl">
                             <FaDiscord className="hover:text-blue-400 transition-colors duration-300" />
                             <FaXTwitter className="hover:text-gray-400 transition-colors duration-300" />

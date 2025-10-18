@@ -30,7 +30,6 @@ const ScrollingTextTwo = ({ title, duration, size}) => {
           ease: "linear",
         }}
       >
-        {/* ซ้ำ 2 ชุดต่อเนื่อง */}
         <span className="text-center font-pixelify" style={{ fontSize: `${fontSize}px` }}>
           {repeatedText}
         </span>

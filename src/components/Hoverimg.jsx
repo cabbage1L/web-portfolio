@@ -12,10 +12,7 @@ export default function HoverImage() {
     const rotateX = ((y / rect.height) - 0.5) * -20;
     const rotateY = ((x / rect.width) - 0.5) * 20;
 
-    // ด้านหน้า (ภาพ 1) เคลื่อนแรงกว่า และยกออกมานิดหนึ่ง
     setTransformFront(`rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(30px) scale(1.05)`);
-
-    // ด้านหลัง (ภาพ 2) เคลื่อนน้อยกว่า
     setTransformBack(`rotateX(${rotateX / 2}deg) rotateY(${rotateY / 2}deg) translateZ(-10px) scale(1.05)`);
   };
 
