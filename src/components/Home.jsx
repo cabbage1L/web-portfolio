@@ -31,7 +31,7 @@ export default function Home() {
             </div>
           ) : (
             // iframe
-            <div className="aspect-video bg-black flex items-center justify-center rounded-t-md shadow-lg overflow-hidden">
+            <div className="w-[40%] sm:w-[100%] aspect-video bg-black flex items-center justify-center rounded-t-md shadow-lg overflow-hidden">
               <iframe
                 src="https://cabbage1l.github.io/cobe-adventure/coke_game1.0.12.html"
                 title="Adventure"
