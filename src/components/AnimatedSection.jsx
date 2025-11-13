@@ -44,7 +44,7 @@ export default function AnimatedSection() {
                     {/* ช่องกลาง */}
                     <div className="flex-[2] w-100 flex items-center justify-center">
                         <p className="text-center text-sm sm:text-2xl text-gray-300">
-                            W D
+                           "Not our game yet."
                         </p>
                     </div>
 

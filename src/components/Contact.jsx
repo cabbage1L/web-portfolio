@@ -26,7 +26,7 @@ export default function Contact() {
                         You can also follow my other work at [].
                     </p>
                     <p className="text-md sm:text-2xl leading-relaxed font-sans mb-6">
-                        iscokeeed@gmail.com
+                        athit.disdam@gmail.com
                     </p>
 
                     {/* Avatar */}
@@ -45,10 +45,15 @@ export default function Contact() {
 
                         {/* โซเชียล */}
                         <div className="flex items-center justify-center gap-6 text-2xl">
-                            <FaDiscord className="hover:text-blue-400 transition-colors duration-300" />
                             <FaXTwitter className="hover:text-gray-400 transition-colors duration-300" />
-                            <FaInstagram className="hover:text-pink-400 transition-colors duration-300" />
-                            <FaTiktok className="hover:text-white transition-colors duration-300" />
+                            <a
+                                href="https://instagram.com/coke_peele"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="hover:text-pink-400 transition-colors duration-300"
+                            >
+                                <FaInstagram />
+                            </a>
                         </div>
                     </motion.div>
                 </motion.div>

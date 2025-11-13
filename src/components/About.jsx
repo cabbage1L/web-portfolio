@@ -6,7 +6,7 @@ export default function AboutSection() {
     return (
         <section id="About" className="min-h-screen scroll-mt-[2.3rem] bg-black text-white flex flex-col justify-center items-center">
 
-            <SectionTitle title={"About"}/>
+            <SectionTitle title={"About"} />
             <div className="flex flex-col md:flex-row items-center sm:gap-12 max-w-6xl w-full">
 
                 <motion.div
@@ -46,17 +46,21 @@ export default function AboutSection() {
             </div>
 
             <div className="hidden sm:flex items-center justify-center gap-10 sm:gap-38 text-sm text-gray-400 mt-12 flex-wrap">
-                <div className="flex items-center gap-2">
+                {/* <div className="flex items-center gap-2">
                     <Mail size={16} />
-                    <span>iscokeeed@gmail.com</span>
-                </div>
+                    <span></span>
+                </div> */}
                 <Sparkles size={16} className="text-yellow-400" />
                 <div className="flex items-center gap-2">
                     <Phone size={16} />
-                    <span>0833928788</span>
+                    <span>0839285788</span>
                 </div>
                 <Sparkles size={16} className="text-yellow-400" />
-                <span>athti.disdam@gmail.com</span>
+                <div className="flex items-center gap-2">
+                    <Mail size={16} />
+                    <span>athit.disdam@gmail.com</span>
+                </div>
+                <Sparkles size={16} className="text-yellow-400" />
             </div>
         </section>
 

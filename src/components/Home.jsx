@@ -6,7 +6,6 @@ import Typewriter from "./Typewriter";
 export default function Home() {
   const [isLoaded, setIsLoaded] = useState(false);
 
-
   return (
     <section id="Home" className="scroll-mt-24 min-h-[97dvh] rounded-4xl sm:rounded-2xl pt-5 sm:pt-10 bg-gray-300 flex flex-col items-center relative">
       {/* Left Sidebar */}
@@ -30,7 +29,7 @@ export default function Home() {
               </button>
             </div>
           ) : (
-            // iframe
+            //iframe
             <div className="w-[40%] sm:w-[100%] aspect-video bg-black flex items-center justify-center rounded-t-md shadow-lg overflow-hidden">
               <iframe
                 src="https://cabbage1l.github.io/cobe-adventure/coke_game1.0.12.html"
@@ -46,7 +45,10 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <div className="pt-20 sm:hidden flex flex-col w-50">
+      <div className="pt-1 sm:hidden flex flex-col w-70">
+        <p className="text-black font-bebas font-normal">Not playable on mobile yet.</p>
+      </div>
+      <div className="pt-10 sm:hidden flex flex-col w-70">
         <p className="text-black font-bebas font-normal">BUILD</p>
         <Typewriter
           texts={[
@@ -59,7 +61,6 @@ export default function Home() {
           className="text-xl font-bold sm:text-2xl "
         />
       </div>
-
     </section>
   );
 }
