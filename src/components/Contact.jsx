@@ -20,13 +20,13 @@ export default function Contact() {
                         Thank you for visiting! ✨
                     </p>
                     <p className="text-sm sm:text-2xl leading-relaxed font-sans mb-2">
-                        If you're interested or have any questions, please don’t hesitate to get in touch.
+                        
                     </p>
                     <p className="text-sm sm:text-2xl leading-relaxed font-sans mb-2">
-                        You can also follow my other work at [].
+                        You can also follow my other work at [?].
                     </p>
                     <p className="text-md sm:text-2xl leading-relaxed font-sans mb-6">
-                        athit.disdam@gmail.com
+                        email: athit.disdam@gmail.com
                     </p>
 
                     {/* Avatar */}
